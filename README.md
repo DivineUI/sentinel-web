@@ -16,13 +16,13 @@ monitor.sh -> systemd (sentinel.service) -> /var/log/sentinel/dashboard.txt
 
 ## Verification
 
-- `curl -s http://localhost:8080/dashboard.txt` — a new timestamp appears every 5s.
-- `systemctl status sentinel.service` — service active and enabled.
+- `curl -s http://localhost:8080/dashboard.txt` - a new timestamp appears every 5s.
+- `systemctl status sentinel.service` - service active and enabled.
 
 ## Troubleshooting
 
-- **systemd not running in WSL** — add `[boot] systemd=true` to /etc/wsl.conf
+- **systemd not running in WSL** - add `[boot] systemd=true` to /etc/wsl.conf
   and run `wsl --shutdown` from PowerShell.
-- **403 on dashboard.txt** — ensure files under /var/log/sentinel are mode 644.
-- **Port 8080 busy** — stop the conflicting container/service; do not change the
+- **403 on dashboard.txt** - ensure files under /var/log/sentinel are mode 644.
+- **Port 8080 busy** - stop the conflicting container/service; do not change the
   published port without instruction.
