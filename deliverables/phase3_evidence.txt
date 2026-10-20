@@ -1,16 +1,16 @@
 Phase 3: GitHub Actions Evidence
-Generated: 2026-10-20 17:43:10 UTC
+Generated: 2026-10-20 17:46:29 UTC
 ============================================================
 
 --- Github repository URL ---
 https://github.com/DivineUI/sentinel-web
 
---- Actions run URL ---
-https://github.com/DivineUI/sentinel-web/actions/runs/39468395692
+--- Actions run URL (latest) ---
+https://github.com/DivineUI/sentinel-web/actions/runs/39468696918
 
 --- Final gh run list ---
 failed to determine base repo: no git remotes found
 
---- Job status (from Actions) ---
-docker-build: completed success
+--- Job status (latest run 39468696918) ---
 lint: completed success
+docker-build: completed success
