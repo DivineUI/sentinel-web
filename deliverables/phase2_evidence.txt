@@ -1,0 +1,65 @@
+Phase 2: Docker Evidence
+Generated: 2026-10-20 11:00:34 UTC
+============================================================
+
+--- Dockerfile ---
+FROM nginx:alpine
+EXPOSE 80
+
+
+--- docker build ---
+---> 0690183e0251
+Successfully built 0690183e0251
+Successfully tagged sentinel-web:latest
+
+--- docker run command (same as deliverables/docker_run.sh) ---
+docker run -d --name sentinel-web --restart unless-stopped -p 8080:80 -v /var/log/sentinel:/usr/share/nginx/html:ro sentinel-web
+
+--- docker ps ---
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                                     NAMES
+2ff8d6b6075f   sentinel-web   "/docker-entrypoint.…"   2 minutes ago   Up 2 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   sentinel-web
+
+--- mount inspection (docker inspect) ---
+Container: /sentinel-web  Image: sentinel-web  Ports: map[80/tcp:[{invalid IP 8080}]]  Mounts: [{bind  /var/log/sentinel /usr/share/nginx/html  ro false rprivate}]
+
+--- curl attempt 1 (localhost:8080/dashboard.txt) ---
+=== 2026-10-20 11:00:35 GMT ===
+Hostname: Divine
+Uptime: up 6 minutes
+Load average: 6.57 2.33 0.96
+Memory (free -h):
+               total        used        free      shared  buff/cache   available
+Mem:           7.5Gi       742Mi       6.0Gi       3.6Mi       1.0Gi       6.8Gi
+Swap:          2.0Gi          0B       2.0Gi
+Disk (/):
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd       1007G  2.5G  954G   1% /
+Top 5 processes by memory:
+356       1 Ssl   1.1 21.5 dockerd
+264       1 Ssl   0.7 12.8 containerd
+176       1 Ssl   0.5  7.3 snapd
+308       1 Ssl   0.4 10.2 unattended-upgr
+166       1 Ss    0.3 13.2 networkd-dispat
+
+HTTP 200
+
+--- curl attempt 2 (6s later) ---
+=== 2026-10-20 11:00:40 GMT ===
+Hostname: Divine
+Uptime: up 6 minutes
+Load average: 5.85 2.31 0.97
+Memory (free -h):
+               total        used        free      shared  buff/cache   available
+Mem:           7.5Gi       727Mi       6.0Gi       3.6Mi       1.0Gi       6.8Gi
+Swap:          2.0Gi          0B       2.0Gi
+Disk (/):
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd       1007G  2.5G  954G   1% /
+Top 5 processes by memory:
+356       1 Ssl   1.1 10.3 dockerd
+264       1 Ssl   0.7  6.6 containerd
+308       1 Ssl   0.4  5.0 unattended-upgr
+166       1 Ss    0.3  6.9 networkd-dispat
+1       0 Ss    0.1 13.4 systemd
+
+HTTP 200
