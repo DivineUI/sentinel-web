@@ -1,6 +1,4 @@
 Phase 2: Docker Evidence
-Generated: 2026-10-20 11:00:34 UTC
-============================================================
 
 --- Dockerfile ---
 FROM nginx:alpine
@@ -23,7 +21,7 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS   
 Container: /sentinel-web  Image: sentinel-web  Ports: map[80/tcp:[{invalid IP 8080}]]  Mounts: [{bind  /var/log/sentinel /usr/share/nginx/html  ro false rprivate}]
 
 --- curl attempt 1 (localhost:8080/dashboard.txt) ---
-=== 2026-10-20 11:00:35 GMT ===
+2026-10-20 11:00:35 GMT
 Hostname: Divine
 Uptime: up 6 minutes
 Load average: 6.57 2.33 0.96
@@ -44,7 +42,7 @@ Top 5 processes by memory:
 HTTP 200
 
 --- curl attempt 2 (6s later) ---
-=== 2026-10-20 11:00:40 GMT ===
+2026-10-20 11:00:40 GMT 
 Hostname: Divine
 Uptime: up 6 minutes
 Load average: 5.85 2.31 0.97
