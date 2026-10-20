@@ -1,6 +1,4 @@
 Phase 1: System Configuration Evidence
-Generated: 2026-10-20 10:56:44 UTC
-============================================================
 
 --- id sentinel ---
 uid=997(sentinel) gid=986(sentinel) groups=986(sentinel)
@@ -29,8 +27,8 @@ Oct 20 10:56:14 Divine systemd[1]: Started sentinel.service - Operation Sentinel
 --- systemctl is-enabled sentinel.service ---
 enabled
 
---- dashboard.txt read 1 (timestamped) ---
-=== 2026-10-20 10:56:44 GMT ===
+dashboard.txt read 1
+2026-10-20 10:56:44 GMT
 Hostname: Divine
 Uptime: up 2 minutes
 Load average: 1.33 0.95 0.39
@@ -48,8 +46,8 @@ Top 5 processes by memory:
 177       1 Ss    0.3  2.3 networkd-dispat
 1       0 Ss    0.1  6.8 systemd
 
---- dashboard.txt read 2 (6s later, timestamped) ---
-=== 2026-10-20 10:56:49 GMT ===
+dashboard.txt read 2
+2026-10-20 10:56:49 GMT
 Hostname: Divine
 Uptime: up 2 minutes
 Load average: 1.39 0.97 0.40
